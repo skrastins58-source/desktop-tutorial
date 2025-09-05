@@ -1,0 +1,111 @@
+name: 🤖 Copilot Task
+description: Request a task to be completed by the GitHub Copilot coding agent
+title: "[Copilot] "
+labels: ["copilot-task", "agent-ready"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to assign tasks to the GitHub Copilot coding agent. Be specific and clear about your requirements.
+
+  - type: textarea
+    id: task-description
+    attributes:
+      label: 📝 Task Description
+      description: Clearly describe what you want the agent to accomplish
+      placeholder: "Example: Add unit tests for the GCP instance management functions in Day.txt"
+    validations:
+      required: true
+
+  - type: textarea
+    id: target-files
+    attributes:
+      label: 📂 Target Files/Directories
+      description: List the specific files or directories that need to be modified or created
+      placeholder: |
+        Example:
+        - Day.txt (main script)
+        - test_Day.py (new test file)
+        - README.md (update usage section)
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: ✅ Acceptance Criteria
+      description: Define what "done" looks like for this task
+      placeholder: |
+        Example:
+        - [ ] Unit tests cover all functions in Day.txt
+        - [ ] Tests pass when run with python3 -m unittest
+        - [ ] Code follows PEP 8 style guidelines
+        - [ ] Documentation is updated with test instructions
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 📊 Priority
+      description: How urgent is this task?
+      options:
+        - Low
+        - Medium  
+        - High
+        - Critical
+      default: 1
+
+  - type: dropdown
+    id: task-type
+    attributes:
+      label: 🏷️ Task Type
+      description: What type of work is this?
+      options:
+        - Bug Fix
+        - Feature Enhancement
+        - Code Refactoring
+        - Testing
+        - Documentation
+        - Performance Improvement
+        - Security Fix
+      default: 0
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: 💡 Additional Context
+      description: Any additional information, links, or context that would help the agent
+      placeholder: |
+        Example:
+        - Related issue: #123
+        - Reference documentation: https://docs.python.org/3/library/unittest.html
+        - Expected behavior: Script should handle network timeouts gracefully
+
+  - type: textarea
+    id: environment-notes
+    attributes:
+      label: 🔧 Environment/Setup Notes
+      description: Any specific environment requirements or setup notes
+      placeholder: |
+        Example:
+        - Requires Python 3.8+
+        - Needs gcloud CLI installed and configured
+        - Should work on both Linux and macOS
+
+  - type: checkboxes
+    id: agent-guidelines
+    attributes:
+      label: 🤖 Agent Guidelines
+      description: Special instructions for the Copilot agent
+      options:
+        - label: Make minimal changes - preserve existing functionality
+          required: false
+        - label: Add comprehensive tests
+          required: false
+        - label: Update documentation
+          required: false
+        - label: Follow existing code style
+          required: false
+        - label: Add error handling
+          required: false
