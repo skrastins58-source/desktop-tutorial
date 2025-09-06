@@ -1,0 +1,10 @@
+# test_Day.txt - Experiment File
+
+This file is for your experiments while learning GitHub Desktop.
+Feel free to:
+- Add text and practice making commits
+- Test different types of changes (additions, deletions, modifications)
+- Practice creating branches with this file
+- Use this for learning pull requests
+
+Your experiments start here:

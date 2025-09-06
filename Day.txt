@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+"""
+Day.txt - A sample Python script for GitHub Desktop Tutorial
+This file is for practicing Git commits, branches, and pull requests.
+Feel free to modify this script to learn GitHub Desktop!
+"""
+
+import datetime
+
+def main():
+    """
+    A simple script that displays the current day and a greeting message.
+    Try modifying the messages or adding new functionality!
+    """
+    today = datetime.date.today()
+    day_name = today.strftime("%A")
+    
+    print("=" * 40)
+    print(f"Hello! Today is {day_name}")
+    print(f"Date: {today}")
+    print("=" * 40)
+    
+    # Try modifying these messages or adding your own!
+    greetings = [
+        "Have a wonderful day!",
+        "Hope you're enjoying learning Git!",
+        "Happy coding!"
+    ]
+    
+    print(f"\n{greetings[today.weekday() % len(greetings)]}")
+    
+    # Practice area - add your own code below:
+    # TODO: Add your name here
+    # TODO: Add a function that calculates days until the weekend
+    # TODO: Add a function that shows your favorite programming languages
+
+if __name__ == "__main__":
+    main()
