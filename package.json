@@ -1,1 +1,3 @@
 {"name":"desktop-tutorial","version":"1.0.0","description":"","main":"index.js","scripts":{"test":"echo \"No tests implemented yet\""},"author":"","license":"ISC","dependencies":{}}
+- name: Run NPM Script
+  run: npm run
