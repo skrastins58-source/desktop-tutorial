@@ -2,5 +2,4 @@
 - name: Build Project
   run: npm run "scripts": {
   "build": "echo \"Build process not implemented yet\"",
-  "test": "echo \"No tests implemented yet\""
-}
+  "test": "echo \"No tests implemented yet\""}
