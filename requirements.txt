@@ -1,5 +1,6 @@
 pytest==7.2.0
 numpy==1.23.0
 pandas==1.5.0
+
 - name: Install dependencies
   -r requirements.txt
