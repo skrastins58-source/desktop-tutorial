@@ -31,3 +31,10 @@ jobs:
 git clone https://github.com/skrastins58-source/desktop-tutorial.git
 cd desktop-tutorial
 npm install
+
+- name: Debugging Step
+  run: |
+    echo "Current directory:"
+    pwd
+    echo "Files in directory:"
+    ls -la
