@@ -27,3 +27,7 @@ jobs:
 
 - name: Debug Files
   run: ls -la && cat package.json
+
+git clone https://github.com/skrastins58-source/desktop-tutorial.git
+cd desktop-tutorial
+npm install
