@@ -1,5 +1,13 @@
-{"name":"desktop-tutorial","version":"1.0.0","description":"","main":"index.js","scripts":{"test":"echo \"No tests implemented yet\""},"author":"","license":"ISC","dependencies":{}}
-- name: Build Project
-  run: npm run "scripts": {
-  "build": "echo \"Build process not implemented yet\"",
-  "test": "echo \"No tests implemented yet\""}
+{
+  "name": "desktop-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo \"Build process not implemented yet\"",
+    "test": "echo \"No tests implemented yet\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}
