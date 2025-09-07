@@ -158,3 +158,10 @@ python-tests:
       with:
         name: pytest-results
         path: test-results/results.xml
+
+jobs:
+  node-build:
+    # your existing Node.js job
+
+  python-tests:
+    # paste the Python job here
