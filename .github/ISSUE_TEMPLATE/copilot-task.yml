@@ -1,0 +1,49 @@
+name: 🧠 Copilot Task
+description: Assign a structured task to the Copilot Coding Agent
+title: "[Copilot Task] <brief summary of the task>"
+labels: [copilot, task, automation]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🎯 Task Overview
+        Describe the task you want Copilot to perform. Be specific and include any relevant context.
+
+  - type: textarea
+    id: task-description
+    attributes:
+      label: Task Description
+      description: What should Copilot do? Include goals, constraints, and expected behavior.
+      placeholder: "Generate a test script for Day.txt that verifies the printed date format..."
+    validations:
+      required: true
+
+  - type: input
+    id: target-files
+    attributes:
+      label: Target Files or Directory
+      description: Which files or folders should Copilot work on?
+      placeholder: "src/Day.txt, tests/test_day_script.py"
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What conditions must be met for this task to be considered complete?
+      placeholder: "- Output matches expected format\n- Test passes on Ubuntu and Windows"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How urgent is this task?
+      options:
+        - High
+        - Medium
+        - Low
+    validations:
+      required: false
