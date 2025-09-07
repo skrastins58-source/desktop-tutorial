@@ -1,40 +1,76 @@
-name: CI
+name: .NET CI Pipeline
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
+  build-and-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        dotnet: ['6.0.x']
+      fail-fast: false
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
 
-    - name: Install dependencies
-      run: npm install
+      # Pre-firewall dependency setup
+      - name: Cache Newtonsoft.Json.Schema
+        id: cache-deps
+        uses: actions/cache@v3
+        with:
+          path: ./dependencies
+          key: ${{ runner.os }}-jsonschema-${{ hashFiles('**/JsonSchema40r1.zip') }}
 
-    - name: Run tests
-      run: npm test
+      - name: Download and Extract Schema
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ./dependencies
+          curl -L -o ./dependencies/JsonSchema40r1.zip https://github.com/JamesNK/Newtonsoft.Json.Schema/releases/download/4.0.1/JsonSchema40r1.zip
+          unzip -o ./dependencies/JsonSchema40r1.zip -d ./dependencies/JsonSchema
 
-- name: Debug Files
-  run: ls -la && cat package.json
+      # Debugging step (optional)
+      - name: Debugging Step
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Files in directory:"
+          ls -la
 
-git clone https://github.com/skrastins58-source/desktop-tutorial.git
-cd desktop-tutorial
-npm install
+      # Build and test
+      - name: Restore dependencies
+        run: dotnet restore
 
-- name: Debugging Step
-  run: |
-    echo "Current directory:"
-    pwd
-    echo "Files in directory:"
-    ls -la
+      - name: Build project
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Run tests
+        run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=test-results.trx" --results-directory ./TestResults
+
+      # Upload test results
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results-${{ matrix.os }}
+          path: ./TestResults
+
+      # Upload build artifacts
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-${{ matrix.os }}
+          path: |
+            **/bin/Release/
+            !**/obj/**
