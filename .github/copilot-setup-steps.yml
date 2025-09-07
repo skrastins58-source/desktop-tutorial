@@ -1,0 +1,42 @@
+name: 🛠️ Copilot Setup Steps
+
+on:
+  workflow_dispatch:
+
+jobs:
+  setup-environment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Install .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Install project dependencies
+        run: |
+          echo "Installing Python packages..."
+          pip install -r requirements.txt || echo "No requirements.txt found"
+          
+          echo "Installing Node packages..."
+          npm install || echo "No package.json found"
+
+      - name: Verify setup
+        run: |
+          echo "✅ Environment setup complete"
+          python --version
+          node --version
+          dotnet --info
