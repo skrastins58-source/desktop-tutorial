@@ -1,5 +1,10 @@
 # Desktop Tutorial
 
+![Last Commit](https://img.shields.io/github/last-commit/skrastins58-source/desktop-tutorial)
+![Open Issues](https://img.shields.io/github/issues/skrastins58-source/desktop-tutorial)
+![Repo Size](https://img.shields.io/github/repo-size/skrastins58-source/desktop-tutorial)
+![Beginner Friendly](https://img.shields.io/badge/tutorial-beginner%20friendly-brightgreen)
+
 ## 🧪 Practice File Overview
 Expand the section to include:
 - Purpose of each file (e.g., `Day.txt` for Python scripting, `test_Day.txt` for freeform experimentation)
