@@ -1,0 +1,21 @@
+name: Auto Label Issues
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for keywords and apply labels
+        uses: actions-ecosystem/action-issue-labeler@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: |
+            bug: bug
+            suggestion: enhancement
+            practice: practice
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
