@@ -1,44 +1,25 @@
-## 🧪 Using Practice Files
+# Desktop Tutorial
 
-This repository includes two files designed for hands-on practice with GitHub Desktop:
+## 🧪 Practice File Overview
+Expand the section to include:
+- Purpose of each file (e.g., `Day.txt` for Python scripting, `test_Day.txt` for freeform experimentation)
+- Suggested edits and commit exercises
+- Link to new practice files like `Branching.txt`, `MergeConflict.txt`, and `CommitHistory.md` once they’re added
 
-### 📄 `Day.txt`
-A Python script that prints the current day and date.
+## 📝 Issue Templates
+Use these to log your progress or report issues:
 
-#### How to Use:
-1. Open `Day.txt` in your code editor.
-2. Run the script using Python:
-   ```bash
-   python Day.txt
-   ```
-3. Modify the script:
-   - Change the output format.
-   - Add comments or new lines.
-   - Practice making commits after each change.
+- [Practice Task](.github/ISSUE_TEMPLATE/practice-task.yml)
+- [Suggestion](.github/ISSUE_TEMPLATE/suggestion.yml)
+- [Bug Report](.github/ISSUE_TEMPLATE/bug.yml)
 
-#### Example Edits:
-- Add a new print statement.
-- Change the date format using `strftime`.
+## 💡 Try This
 
----
+- Create a new branch and commit a change to `Day.txt`
+- Simulate a merge conflict using `MergeConflict.txt`
+- Submit a suggestion using the issue template
+- Track your commit history in `CommitHistory.md`
 
-### 📝 `test_Day.txt`
-An empty file for experimentation.
+## 📸 Visual Placeholders
 
-#### How to Use:
-- Add any content you like: text, code snippets, notes.
-- Use it to practice:
-  - Staging changes
-  - Writing commit messages
-  - Undoing changes
-  - Creating branches
-
----
-
-### 💡 GitHub Desktop Workflow
-
-1. Open GitHub Desktop and clone this repository.
-2. Make changes to `Day.txt` or `test_Day.txt`.
-3. Stage and commit your changes with a meaningful message.
-4. Push your changes to GitHub.
-5. (Optional) Create a pull request to share your edits.
+*Add screenshots or GIFs here to show GitHub Desktop in action.*
