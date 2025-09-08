@@ -1,0 +1,42 @@
+name: 🧪 Practice Task
+description: Log a GitHub Desktop exercise or tutorial step
+title: "[Practice] <brief task description>"
+labels: [practice, tutorial]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for logging a practice task! Fill out the details below to describe what you're working on.
+
+  - type: input
+    id: objective
+    attributes:
+      label: 🎯 Task Objective
+      description: What is the goal of this exercise?
+      placeholder: e.g., Create a new branch and commit a change
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 📝 Steps Taken
+      description: Describe the steps you followed in GitHub Desktop
+      placeholder: e.g., Cloned repo → Created branch → Edited file → Committed
+
+  - type: textarea
+    id: result
+    attributes:
+      label: ✅ Outcome
+      description: What was the result? Did everything work as expected?
+      placeholder: e.g., Successfully pushed branch and opened PR
+
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: 📊 Difficulty Level
+      description: How challenging was this task?
+      options:
+        - Easy
+        - Moderate
+        - Difficult
