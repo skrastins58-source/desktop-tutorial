@@ -1,0 +1,24 @@
+name: Commit Message Validation
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  validate-commit-message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Validate commit messages
+        run: |
+          echo "🔍 Validating commit messages..."
+          COMMIT_MESSAGE=$(git log --format=%s -n 1)
+          echo "Latest commit: $COMMIT_MESSAGE"
+          echo "$COMMIT_MESSAGE" | grep -E '^[a-z]+: .+' || {
+            echo "❌ Commit message must follow 'type: description' format (e.g., fix: correct typo)"
+            exit 1
+          }
