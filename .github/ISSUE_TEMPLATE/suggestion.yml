@@ -1,0 +1,26 @@
+name: 💡 Suggestion
+description: Propose an idea or improvement for the tutorial
+title: "[Suggestion] <brief idea>"
+labels: [enhancement]
+assignees: []
+
+body:
+  - type: input
+    id: idea
+    attributes:
+      label: 💡 Idea Summary
+      description: What would you like to improve or add?
+      placeholder: e.g., Add a section on resolving merge conflicts
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: 🎯 Why It Matters
+      description: Why is this suggestion helpful?
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: 🛠️ Possible Implementation
+      description: How could this be implemented?
+      placeholder: e.g., Add a new file with step-by-step instructions
